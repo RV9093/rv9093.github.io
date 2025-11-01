@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="My Portfolio.css">
+</head>
+<body>
+        <!----------------------------------------------------------------
+        -                         Header Section                          -
+        ----------------------------------------------------------------->
+        
+    <header class="header">
+        <div class="head">
+            <h1 class="header1">RV</h1>
+            <h2>Rishikesh Verma</h2>
+        </div>
+
+        <!----------------------------------------------------------------
+        -                         Nav Section                          -
+        ----------------------------------------------------------------->
+
+        <nav id="navbar">
+            <span class="menubtn" onclick="openMenu()">&#9776;</span>
+            <span class="closebtn" onclick="closeMenu()">&#10006;</span>
+            <ul id="menu">
+                <li><a href="#" >Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="toggle-container">
+                <input type="checkbox" id="darkmode-toggle"/>
+                <label for="darkmode-toggle">
+                    <svg class="sun" width="800px" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="12" r="5" stroke="#1C274C" stroke-width="1.5"/>
+                        <path d="M12 2V4" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"/>
+                        <path d="M12 20V22" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"/>
+                        <path d="M4 12L2 12" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"/>
+                        <path d="M22 12L20 12" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"/>
+                        <path opacity="0.5" d="M19.7778 4.22266L17.5558 6.25424" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"/>
+                        <path opacity="0.5" d="M4.22217 4.22266L6.44418 6.25424" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"/>
+                        <path opacity="0.5" d="M6.44434 17.5557L4.22211 19.7779" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"/>
+                        <path opacity="0.5" d="M19.7778 19.7773L17.5558 17.5551" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                    <svg class="moon" width="800px" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M3.39703 11.6315C3.39703 16.602 7.42647 20.6315 12.397 20.6315C15.6858 20.6315 18.5656 18.8664 20.1358 16.23C16.7285 17.3289 12.6922 16.7548 9.98282 14.0455C7.25201 11.3146 6.72603 7.28415 7.86703 3.89293C5.20697 5.47927 3.39703 8.38932 3.39703 11.6315ZM21.187 13.5851C22.0125 13.1021 23.255 13.6488 23 14.5706C21.7144 19.2187 17.4543 22.6315 12.397 22.6315C6.3219 22.6315 1.39703 17.7066 1.39703 11.6315C1.39703 6.58874 4.93533 2.25845 9.61528 0.999986C10.5393 0.751502 11.0645 1.99378 10.5641 2.80935C8.70026 5.84656 8.83194 10.0661 11.397 12.6312C13.9319 15.1662 18.1365 15.3702 21.187 13.5851Z" fill="#0F0F0F"/>
+                    </svg>
+                </label>
+            </div>
+        </nav>
+    </header>
+    <main>
+
+        <!----------------------------------------------------------------
+        -                         Intro Section                          -
+        ----------------------------------------------------------------->
+
+        <section class="intro">
+            <div id="intro">
+                <p class="hello">Hello! I'm</p>
+                <p class="name"><b>Rishikesh Verma</b></p>
+                <div class="typing-container">
+                    <span id="typed-text"></span>
+                    <span class="cursor"></span>
+                </div>
+            </div>
+            <div id="intro-details">
+                <p>A Data Governance and Analytics Professional with a strong foundation in front-end development. I love combining data-driven solutions with clean, user-focused design to deliver meaningful digital experiences.</p>
+            </div>
+        </section>
+
+        <!---------------------------------------------------------------
+        -                          About Section                        -
+        ---------------------------------------------------------------->
+
+        <section class="about">
+            <div  id="about">
+                <h2>About Me</h2>
+                <div class="line"></div>
+            </div>
+            <div id="about-me">
+                <p class="about-me-details">I'm a results-driven Data Governance & Front-End Developer with hands-on experience in metadata management, data visualization, and web development. I've worked on governance automation, dashboard creation, and data cataloging solutions using tools like Alation, Collibra, SQL, and Tableau — while also designing responsive web interfaces using HTML, CSS, and JavaScript. <br> My goal is to build data-driven and visually engaging solutions that help businesses improve data transparency and user experience.</p>
+                <div id="do-approach">
+                    <div class="what-i-do">
+                        <h3>What I Do</h3>
+                        <ul class="what-i-do-list">
+                            <li><span>&#10146</span> Data Governance & Metadata Management</li>                    
+                            <li><span>&#10146</span> Dashboard Creation & Data Visualization</li>        
+                            <li><span>&#10146</span> Front-End Web Development</li>
+                            <li><span>&#10146</span> Responsive & User-Focused Web Design</li>
+                            <li><span>&#10146</span> API Integration & DOM Manipulation</li>
+                            <li><span>&#10146</span> Programming & Automation</li>
+                            <li><span>&#10146</span> Cloud & ETL Concepts</li>
+                        </ul>
+                    </div>
+                    <div class="my-approach">
+                        <h3 id="my-approach">My Approach</h3>
+                        <p>I bridge the gap between data and technology through maintainable, scalable solutions. My focus is on clarity, performance, and user experience — whether designing governance frameworks or developing web applications. I prioritize clean, efficient code that aligns with business goals while ensuring security, compliance, and long-term stability.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="exp">
+                <div id="experience">
+                    <p>3y 4m</p>
+                    <p>Experience</p>
+                </div>
+                <div id="projects-completed">
+                    <p>3+</p>
+                    <p>Projects Completed</p>
+                </div>
+                <div id="technologies">
+                    <p>5+</p>
+                    <p>Technologies</p>
+                </div>
+                <div id="commitment">
+                    <p>100%</p>
+                    <p>Commitment</p>
+                </div>
+            </div>
+        </section>
+
+        <!----------------------------------------------------------------
+        -                          Skills Section                        -
+        ----------------------------------------------------------------->
+
+        <section id="skills">
+            <div class="skills-heading">
+                <h2 id="skills-heading">Technical Skills</h2>
+                <div class="line"></div>
+            </div>
+            <div id="skills-container">
+                <div class="skills" id="dga">
+                    <h3>Data Governance & Analytics</h3>
+                    <ul id="skill1">
+                        <li>Alation, Collibra, IGC (basic exposure)</li>
+                        <li>Data Quality, Metadata Management, Data Lineage</li>
+                        <li>SQL (Oracle/MySQL), Python, Tableau, Power BI</li>
+                    </ul>
+                </div>
+                <div class="skills" id="fed">
+                    <h3>Front-End Development</h3>
+                    <ul id="skill2">
+                        <li>HTML5, CSS3, JavaScript (ES6+)</li>
+                        <li>Responsive Web Design (Certified - freeCodeCamp)</li>
+                        <li>UI/UX Basics, DOM Manipulation, REST API Integration</li>
+                    </ul>
+                </div>
+                <div class="skills" id="pt">
+                    <h3>Programming & Tools</h3>
+                    <ul id="skill3">
+                        <li>Java (Core, Collections)</li>
+                        <li>Git & GitHub, Postman</li>
+                        <li>Advanced Excel, Automation Scripts</li>
+                    </ul>
+                </div>
+                <div class="skills" id="cec">
+                    <h3>Cloud & ETL Concepts</h3>
+                    <ul id="skill4">
+                        <li>Familiarity with AWS & Azure</li>
+                        <li>Data Flow Design, Transformations</li>
+                    </ul>
+                </div>
+            </div> 
+        </section>
+
+        <!----------------------------------------------------------------
+        -                         Projects Section                       -
+        ----------------------------------------------------------------->
+
+        <section id="projects">
+            <div class="projects-heading">
+                <h2 id="projects-heading">Projects</h2>
+                <div class="line"></div>
+            </div>
+            <div id="projects-container">
+                <div class="projects" id="project1">
+                    <div class="images">
+                        <figure id="image1">
+                            <img src="images/data-governance-framework-gestione-dati-aziendali.jpg" alt="Data Governance">
+                        </figure>
+                    </div>
+                    <div>
+                        <h3>Data Governance & Metadata Management Implementation</h3>
+                        <ul class="project-list">                    
+                            <li><span>&#10037</span> Designed and implemented a data catalog solution using Alation.</li>
+                            <li><span>&#10037</span> Built automated SQL validation scripts for data consistency.</li>
+                            <li><span>&#10037</span> Developed interactive Tableau dashboards for governance KPIs and lineage visualization.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="projects" id="project2">
+                    <div class="images">
+                        <figure id="image2">
+                            <img src="images/Metadata-Management-Feature.jpg" alt="Data Governance">
+                        </figure>
+                    </div>
+                    <div>
+                        <h3>Data Operations & Customer Intelligence (ICICI Bank)</h3>
+                        <ul class="project-list">                    
+                            <li><span>&#10037</span> Automated data quality validation and exception reporting using SQL and Java.</li>
+                            <li><span>&#10037</span> Maintained metadata repositories for audit readiness.</li>
+                            <li><span>&#10037</span> Supported ETL validation and regulatory governance projects.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="projects" id="project3">
+                    <div class="images">
+                        <figure id="image3">
+                            <img src="images/Web-Design-Engagement-Rates--scaled.jpeg" alt="Data Governance">
+                        </figure>
+                    </div>
+                    <div>
+                        <h3>Responsive Web Design Project (Front-End)</h3>
+                        <ul class="project-list">                    
+                            <li><span>&#10037</span> Developed multiple responsive websites as part of freeCodeCamp certification.</li>
+                            <li><span>&#10037</span> Focused on mobile-first design, clean layouts, and accessibility.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!----------------------------------------------------------------
+        -                       Let's Work Together                      -
+        ----------------------------------------------------------------->
+        
+        <section class="form-section">
+            <div class="form-header">
+                <h2>Let's Work Together</h2>
+                <div class="line"></div>
+                <p class="subtitle">
+                    Ready to build something amazing? Let's discuss how we can create innovative software solutions together.
+                </p>
+            </div>
+            <div class="container">
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    <p>
+                        I'm always excited to discuss new opportunities, challenging projects, 
+                        and potential collaborations in software development.
+                    </p>
+
+                    <div class="contact-item" id="item1">
+                        <svg class="email1" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-xmivup5a=""> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" data-astro-cid-xmivup5a=""></path> </svg>
+                        <div class="link">
+                        Email<br>
+                        <a href="mailto:rishi903@gmail.com"><strong>rishi9093@gmail.com</strong></a>
+                        </div>
+                    </div>
+
+                    <div class="contact-item" id="item2">
+                        <svg class="phone1" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-xmivup5a=""> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" data-astro-cid-xmivup5a=""></path> </svg>
+                        <div class="link">
+                        Phone<br>
+                        <a href="tel:9113352701"><strong>9113352701</strong></a>
+                        </div>
+                    </div>
+
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fas fa-times"></i></a>
+                    </div>
+                </div>
+                <form class="form">
+                    <div class="form-group">
+                        <label for="name">Full Name *</label><br>
+                        <input class="name1" type="text" id="name" name="name" placeholder="Your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address *</label><br>
+                        <input class="email" type="email" id="email" name="email" placeholder="your.email@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label><br>
+                        <input class="phone" type="tel" id="phone" name="phone" placeholder="987654321">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message *</label><br>
+                        <textarea class="message" id="message" name="message" rows="4" placeholder="Share your thoughts, project ideas, or let's discuss potential opportunities..." required></textarea>
+                    </div>
+                    <button class="submit" type="submit">Send Message</button>
+                </form>
+            </div>
+
+        </section>
+    </main>
+    
+        <!----------------------------------------------------------------
+        -                         Footer Section                         -
+        ----------------------------------------------------------------->
+
+    <footer>
+        <div id="contact-container">
+            <h2 id="contact">Contact</h2>
+        </div>
+        <div id="contact-paragraph">
+            <p id="contact-details">
+                📞 Phone: 9113352701 <br>
+                📧 Email: rishi9093@gmail.com <br>
+                🔗 LinkedIn: <a href="https://linkedin.com/in/rishikesh-m-verma-12abc07" target="_blank">linkedin.com/in/rishikesh-m-verma-12abc07</a> <br> © 2025 My Portfolio | All Rights Reserved
+            </p>
+            <p></p>
+        </div>
+    </footer>
+
+        <!----------------------------------------------------------------
+        -                       Scroll to Top Button                     -
+        ----------------------------------------------------------------->
+
+    <button id="scrollToTopBtn" title="Go to top"><svg class="arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" data-astro-cid-j7pv25f6=""> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" data-astro-cid-j7pv25f6=""></path> </svg></button>
+
+        <!----------------------------------------------------------------
+        -                           Java Script                          -
+        ----------------------------------------------------------------->
+
+    <script src="My Portfolio.js"></script>
+</body>
+</html>
