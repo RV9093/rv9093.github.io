@@ -6,7 +6,6 @@
 }
 
 body {
-  background: #ffffff;
   font-family: "Poppins", sans-serif;
   overflow-x: hidden;
 }
@@ -14,35 +13,45 @@ body {
 /*==============================  NAVBAR  ===============================*/
 
 .header {
-  width: 100%;
-  height: 50px;
-  background-color: rgb(246, 244, 244);
   display: flex;
   align-items: center;
   justify-content: space-between;
   position: fixed;
-  z-index: 10;
+  width: 100%;
+  padding: 10px 0px;
+  background-color: rgb(246, 244, 244);
+  z-index: 1;
+  padding: 10px clamp(20px, 10vw, 120px);
+  gap: clamp(10px, 40vw - 300px, 100px);
+  transition: padding 0.4s ease, gap 0.4s ease;
+}
+
+.head,
+#navbar {
+  flex-shrink: 0;
 }
 
 .head {
-  display: inline-flex;
-  margin-left: 250px;
-  font-size: 12px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  white-space: nowrap;
 }
 
 .header1 {
+  display: inline-block;
   color: rgb(247, 244, 244);
-  margin-left: 40px;
   border: 1px;
   background-color: rgb(6, 137, 173);
   padding: 4px 8px;
+  font-size: 15px;
   border-radius: 7px;
 }
 
-.header h2 {
+.head h2 {
+  font-size: 15px;
   color: rgb(6, 137, 173);
-  margin-left: 18px;
-  margin-top: 6px;
+  margin-left: 15px;
 }
 
 #menu {
@@ -74,20 +83,20 @@ body {
 }
 
 #menu li a {
+  display: flex;
+  justify-content: center;
   text-decoration: none;
   color: rgb(0, 0, 0);
 }
 
 #menu li a:hover {
+  color: maroon;
   text-decoration: underline;
   text-underline-offset: 4px;
 }
 
-#navbar {
-  margin-right: 30px;
-}
-
-.closebtn, .menubtn {
+.closebtn,
+.menubtn {
   color: black;
   font-size: 28px;
   margin: 0 20px;
@@ -99,10 +108,105 @@ body {
   display: none;
 }
 
+.language-toggle {
+  display: inline-block;
+  margin-left: 15px;
+}
+
+.language-toggle select {
+  padding: 4px 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: var(--bg-color, #fff);
+  cursor: pointer;
+  font-weight: 500;
+}
+
+/*======================  Responsive Adjustments  =======================*/
+
+@media (max-width: 750px) {
+
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    width: 100%;
+    height: 50px;
+    padding: 10px 0px;
+    background-color: rgb(246, 244, 244);
+    z-index: 1;
+    padding: 10px clamp(20px, 10vw, 120px);
+    gap: clamp(10px, 40vw - 300px, 100px);
+    transition: padding 0.4s ease, gap 0.4s ease;
+  }
+
+  .head {
+    display: flex;
+    position: relative;
+    white-space: nowrap;
+  }
+
+  .header1 {
+    margin-left: 0px;
+    font-size: 15px;
+  }
+
+  .head h2 {
+    font-size: 15px;
+    margin-left: 15px;
+  }
+
+  #menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    background-color: rgba(255, 255, 255, 0.95);
+    width: 40%;
+    height: 100%;
+    text-align: center;
+    padding-top: 80px;
+    flex-direction: column;
+    transition: right 0.5s ease-in-out, opacity 0.4s ease-in-out;
+  }
+
+  #menu.active {
+    right: 0;
+  }
+
+  #menu li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+    padding: 10px;
+  }
+
+  #menu li:hover {
+    background: #afafaf;
+    border-radius: 5px;
+    width: 100%;
+    height: 40px;
+  }
+
+  .menubtn {
+    display: block;
+  }
+
+  .closebtn {
+    position: fixed;
+    top: 10px;
+    right: 30px;
+    z-index: 11;
+    display: none;
+  }
+}
+
+
 /*============================   TOGGLE   =============================*/
 
 .toggle-container {
-  margin-left: auto; 
+  margin-left: auto;
   display: flex;
   align-items: center;
   transition: opacity 0.3s ease, visibility 0.3s ease;
@@ -134,8 +238,8 @@ input#darkmode-toggle {
   height: 26px;
   position: absolute;
   top: 2px;
-  left: 2px; 
-  background: linear-gradient(180deg, #ffcc89, #d8860b); 
+  left: 2px;
+  background: linear-gradient(180deg, #ffcc89, #d8860b);
   border-radius: 50%;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
   transition: all 0.3s ease;
@@ -145,11 +249,11 @@ label:active::after {
   transform: scale(1.05);
 }
 
-input:checked + label {
+input:checked+label {
   background: #242424;
 }
 
-input:checked + label:after {
+input:checked+label:after {
   left: calc(100% - 28px);
   background: linear-gradient(180deg, #777, #3a3a3a);
 }
@@ -166,7 +270,7 @@ label svg {
 label svg.sun {
   position: absolute;
   width: 16px;
-  height: 16px;    
+  height: 16px;
   left: 7px;
   top: 50%;
   transform: translateY(-50%);
@@ -178,7 +282,7 @@ label svg.sun {
 label svg.moon {
   position: absolute;
   width: 16px;
-  height: 16px;      
+  height: 16px;
   right: 7px;
   top: 50%;
   transform: translateY(-50%);
@@ -187,20 +291,58 @@ label svg.moon {
   opacity: 0.6;
 }
 
-
-input:checked + label svg.sun {
-  fill: #7e7e7e;   
+input:checked+label svg.sun {
+  fill: #7e7e7e;
 }
 
-input:checked + label svg.moon {
-  fill: #fff;       
+input:checked+label svg.moon {
+  fill: #fff;
 }
 
 #navbar {
   margin-right: 30px;
   display: flex;
   align-items: center;
-  gap: 15px; 
+  gap: 15px;
+}
+
+/*=============================  DARK MODE  =============================*/
+/*=========================  HEADER AND FOOTER  =========================*/
+
+body.dark-mode .header {
+  background-color: #012432fe;
+}
+
+body.dark-mode .menubtn {
+  color: #fff;
+}
+
+body.dark-mode .closebtn {
+  color: #fff;
+}
+
+body.dark-mode .moon {
+  color: #fff;
+}
+
+body.dark-mode #menu li a {
+  color: #e0e0e0;
+}
+
+body.dark-mode #menu li a:hover {
+  color: #80dfff;
+}
+
+/*======================= Dark Mode Responsive  =========================*/
+
+@media (max-width: 750px) {
+  body.dark-mode #menu {
+    background-color: rgba(1, 28, 38, 0.95);
+  }
+
+  body.dark-mode #menu li:hover {
+    background: #00434f;
+  }
 }
 
 /*============================   INTRO   =============================*/
@@ -242,9 +384,17 @@ input:checked + label svg.moon {
 }
 
 @keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .typing-container {
@@ -255,11 +405,11 @@ input:checked + label svg.moon {
 
 .cursor {
   display: inline-block;
-  width: 2px;             
-  height: 1.2em;          
+  width: 2px;
+  height: 1.2em;
   background-color: rgb(160, 250, 255);
   margin-left: 4px;
-  vertical-align: bottom; 
+  vertical-align: bottom;
   animation: blink 0.7s steps(1) infinite;
 }
 
@@ -278,6 +428,45 @@ input:checked + label svg.moon {
   line-height: 1.6;
 }
 
+/*======================  Responsive Adjustments  =======================*/
+
+@media (max-width: 900px) {
+  .intro {
+    height: auto;
+    padding: 100px 20px;
+  }
+
+  .name {
+    font-size: 50px;
+  }
+
+  #intro-details {
+    margin: 30px 20px;
+    padding: 10px;
+  }
+}
+
+/*===========================  DARK MODE  =============================*/
+/*=========================  Intro SECTION  =========================*/
+
+body.dark-mode .intro {
+  background: radial-gradient(rgb(0, 107, 131), #0c191f);
+}
+
+body.dark-mode #intro-details {
+  color: rgb(191, 190, 190);
+}
+
+/*======================  TYPING TEXT AND CURSOR  =======================*/
+
+body.dark-mode #typed-text {
+  color: #80dfff;
+}
+
+body.dark-mode .cursor {
+  background-color: #00bcd4;
+}
+
 /*============================  ABOUT ME   ============================*/
 
 .about {
@@ -289,7 +478,7 @@ input:checked + label svg.moon {
 }
 
 #about {
-    margin-top: 30px;
+  margin-top: 30px;
 }
 
 .about h2 {
@@ -372,26 +561,84 @@ input:checked + label svg.moon {
   color: darkslategrey;
 }
 
+/*======================  Responsive Adjustments  =======================*/
+
+@media (max-width: 900px) {
+  #about-me {
+    width: 90%;
+    margin: 40px auto;
+  }
+
+  #do-approach {
+    flex-direction: column;
+    gap: 20px;
+    align-items: stretch;
+  }
+
+  .what-i-do,
+  .my-approach {
+    flex: 1 1 100%;
+    min-width: 0;
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+/*============================  DARK MODE  ============================*/
+/*============================  About  ==============================*/
+
+body.dark-mode .about {
+  background-color: #00192b;
+}
+
+body.dark-mode #about {
+  color: white;
+}
+
+body.dark-mode #about-me {
+  background-color: #0d171f;
+}
+
+body.dark-mode .about-me-details {
+  color: #c8c6c6;
+}
+
+body.dark-mode .what-i-do h3 {
+  color: white;
+}
+
+body.dark-mode .what-i-do-list {
+  color: #c8c6c6;
+}
+
+body.dark-mode .my-approach h3 {
+  color: white;
+}
+
+body.dark-mode .my-approach p {
+  color: #c8c6c6;
+}
+
 /*====================  Experience & Other Sections  ====================*/
 
 .exp {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center; 
-  align-items: stretch; 
-  gap: 30px; 
-  width: 60%; 
-  max-width: 900px; 
-  margin: 60px auto; 
+  justify-content: center;
+  align-items: stretch;
+  gap: 30px;
+  width: 60%;
+  max-width: 900px;
+  margin: 60px auto;
   box-sizing: border-box;
 }
 
-#experience, 
-#projects-completed, 
-#technologies, 
+#experience,
+#projects-completed,
+#technologies,
 #commitment {
-  flex: 1 1 150px; 
-  max-width: 280px; 
+  flex: 1 1 150px;
+  max-width: 280px;
   padding: 30px;
   border-radius: 12px;
   border: 1px solid silver;
@@ -400,8 +647,8 @@ input:checked + label svg.moon {
   color: darkslategrey;
   text-align: center;
   display: flex;
-  flex-direction: column; 
-  justify-content: center; 
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
   box-sizing: border-box;
   transition: transform 0.2s ease;
@@ -412,6 +659,44 @@ input:checked + label svg.moon {
 #technologies:hover,
 #commitment:hover {
   transform: scale(1.02);
+  border: 1px solid cyan;
+}
+
+#experience>p:first-of-type,
+#projects-completed>p:first-of-type,
+#technologies>p:first-of-type,
+#commitment>p:first-of-type {
+  color: #00bcd4;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+/*======================  Responsive Adjustments  =======================*/
+
+@media (max-width: 900px) {
+  .exp {
+    width: 90%;
+    margin: 40px auto;
+    gap: 20px;
+  }
+
+  #experience,
+  #projects-completed,
+  #technologies,
+  #commitment {
+    flex: 1 1 150px;
+    max-width: 180px;
+  }
+}
+
+/*=============================  DARK MODE  =============================*/
+
+body.dark-mode #experience,
+body.dark-mode #projects-completed,
+body.dark-mode #technologies,
+body.dark-mode #commitment {
+  background-color: #0d171f;
+  color: #c8c6c6;
 }
 
 /*============================  Skills  =============================*/
@@ -422,6 +707,8 @@ input:checked + label svg.moon {
   align-items: center;
   justify-content: center;
   text-align: center;
+  margin: 0;
+  padding: 10px 0;
 }
 
 .skills-heading {
@@ -447,18 +734,17 @@ input:checked + label svg.moon {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 30px;                      
-  width: 70%;                      
-  max-width: 900px;                
+  gap: 30px;
+  width: 95%;
   margin: 0 auto;
   box-sizing: border-box;
 }
 
 .skills {
-  flex: 1 1 230px;           
-  min-width: 180px;          
-  max-width: 290px;               
-  height: 280px;                   
+  flex: 1 1 300px;
+  min-width: 180px;
+  max-width: 300px;
+  height: auto;
   background: #fff;
   border-radius: 10px;
   border: 1px solid silver;
@@ -473,13 +759,15 @@ input:checked + label svg.moon {
 
 .skills h3 {
   padding-bottom: 10px;
-  white-space: nowrap;
   text-indent: -15px;
 }
 
-#skill1, #skill2, #skill3, #skill4 {
+#skill1,
+#skill2,
+#skill3,
+#skill4 {
   line-height: 30px;
-  color: rgb(110, 110, 110);
+  color: rgb(95, 95, 95);
 }
 
 .skills:hover {
@@ -495,11 +783,52 @@ input:checked + label svg.moon {
 }
 
 #pt:hover {
-  background: radial-gradient(rgb(248, 239, 170), rgb(249, 110, 110));
+  background: linear-gradient(90deg, rgb(247, 247, 247), rgb(250, 152, 152));
 }
 
 #cec:hover {
-  background: radial-gradient(rgb(175, 251, 171), rgb(255, 255, 255));
+  background: linear-gradient(180deg, rgb(255, 255, 255), rgb(134, 249, 152));
+}
+
+/*=============================  DARK MODE  =============================*/
+
+body.dark-mode #skills {
+  background-color: #002139;
+}
+
+body.dark-mode #skills-heading {
+  color: white;
+}
+
+body.dark-mode .skills {
+  background-color: #0d171f;
+}
+
+body.dark-mode .skills h3 {
+  color: white;
+}
+
+body.dark-mode #skill1,
+body.dark-mode #skill2,
+body.dark-mode #skill3,
+body.dark-mode #skill4 {
+  color: #c8c6c6;
+}
+
+body.dark-mode #dga:hover {
+  background: linear-gradient(90deg, rgb(1, 77, 64), rgb(0, 0, 0));
+}
+
+body.dark-mode #fed:hover {
+  background: linear-gradient(180deg, rgb(0, 0, 0), rgb(75, 0, 75));
+}
+
+body.dark-mode #pt:hover {
+  background: radial-gradient(rgb(55, 49, 0), rgb(58, 1, 1));
+}
+
+body.dark-mode #cec:hover {
+  background: radial-gradient(rgb(0, 43, 43), rgb(1, 1, 1));
 }
 
 /*============================  Projects  ===========================*/
@@ -510,6 +839,7 @@ input:checked + label svg.moon {
   align-items: center;
   justify-content: center;
   text-align: center;
+  margin: 0px;
 }
 
 .projects-heading {
@@ -536,20 +866,21 @@ input:checked + label svg.moon {
   padding: 2em;
   background: #ffffff;
   border-radius: 10px;
-  position: relative;                   
-  width: 50%;                      
-  max-width: 900px;                
+  position: relative;
+  width: 50%;
+  max-width: 900px;
   margin: 20px auto;
   box-sizing: border-box;
 }
 
-@property --angle{
+@property --angle {
   syntax: '<angle>';
   initial-value: 0deg;
   inherits: false;
 }
 
-.projects::after, .projects::before {
+.projects::after,
+.projects::before {
   content: '';
   position: absolute;
   height: 100%;
@@ -565,11 +896,12 @@ input:checked + label svg.moon {
 }
 
 @keyframes spin {
-  from{
-      --angle: 0deg;
+  from {
+    --angle: 0deg;
   }
+
   to {
-      --angle: 360deg;
+    --angle: 360deg;
   }
 }
 
@@ -595,11 +927,11 @@ input:checked + label svg.moon {
 }
 
 .projects::before {
-    filter: blur(1.5rem);
-    opacity: 0.5; 
+  filter: blur(1.5rem);
+  opacity: 0.5;
 }
 
-.project-list li{
+.project-list li {
   list-style: none;
 }
 
@@ -607,9 +939,9 @@ input:checked + label svg.moon {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;          
-  height: 250px;        
-  overflow: hidden;     
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
   border-radius: 10px;
   position: relative;
 }
@@ -617,7 +949,7 @@ input:checked + label svg.moon {
 .images img {
   width: 100%;
   height: 100%;
-  object-fit: cover;    
+  object-fit: cover;
   border-radius: 10px;
   transition: transform 0.5s ease, filter 0.5s ease;
 }
@@ -627,323 +959,14 @@ input:checked + label svg.moon {
   filter: brightness(1.1);
 }
 
-/*=======================  LET'S WORK TOGETHER  ======================*/
-
-.form-section {
-  position: relative;
-  background: radial-gradient(lightgrey, #fff);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.form-header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-  text-align: center;
-  width: 50%;
-  height: auto;
-  padding-top: 40px;
-  padding-right: 40px;
-  padding-bottom: 20px;
-  padding-left: 40px;
-}
-
-.form-header p{
-  padding: 20px;
-}
-
-.container {
-  display: flex;
-  flex-direction: row;
-  width: 60%;
-  height: auto;
-  padding-top: 20px;
-  padding-right: 40px;
-  padding-bottom: 40px;
-  padding-left: 40px;
-}
-
-.contact-info {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  width: 60%;
-  height: auto;
-  padding: 10px;
-}
-
-.contact-info h3 {
-  padding-bottom: 20px;
-}
-
-.contact-info p {
-  padding-bottom: 20px;
-}
-
-.contact-item {
-  display: flex;
-  flex-direction: row;
-  align-items: center; 
-  gap: 10px; 
-}
-
-.link {
-  font-size: smaller;
-}
-
-.link a {
-  font-size: 15px;
-  color: black;
-  text-decoration: none;
-}
-
-.contact-item svg {
-  width: 30px;  
-  height: auto;
-  background-color: rgb(6, 139, 120);
-  border-radius: 5px;
-  color: #fff;
-  margin: 0;
-  padding: 5px;
-  flex-shrink: 0; 
-}
-
-#item1 {
-  margin-bottom: 20px;
-}
-
-.form {
-  display: flex;
-  flex-direction: column;
-  gap: 20px; 
-  padding: 20px;
-  text-align: left;
-  background-color: #fff;
-  box-shadow: 0px 0px 5px 1px grey;
-  border-radius: 10px;
-  width: 40%;
-}
-
-.form-group label {
-  display: block; 
-  font-size: 15px;
-  margin-bottom: -15px; 
-}
-
-.form input,
-.form textarea {
-  padding: 5px 10px;
-  margin-top: 0px;
-  border: 2px solid darkgrey;
-  border-radius: 5px;
-  font-size: 18px;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.form input:hover,
-.form textarea:hover {
-  border: 2px solid cyan;
-}
-
-.form input:focus,
-.form textarea:focus {
-  border: 2px solid #00bcd4; 
-  box-shadow: 0 0 5px rgba(0, 188, 212, 0.5); 
-  outline: none;
-  transition: border 0.3s ease, box-shadow 0.3s ease;
-}
-
-.submit {
-  position: relative;
-  font-size: 20px;
-  background: rgb(6, 139, 120);
-  color: #fff;
-  border-radius: 5px;
-  border-width: 0;
-  padding: 10px 10px 10px 10px;
-}
-
-/*============================  Footer  ============================*/
-
-footer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: rgb(239, 238, 238);
-}
-
-#contact-container {
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-
-#contact-paragraph {
-  margin-top: 10px;
-  margin-bottom: 20px;
-  color: darkslategrey;
-}
-
-#contact-details {
-  line-height: 30px;
-}
-
-a:hover {
-  color: brown;
-}
-
-/*==========================  Scroll To Button  =========================*/
-
-#scrollToTopBtn {
-  position: fixed;
-  bottom: 30px;  
-  right: 30px;
-  z-index: 100;
-  width: 40px;       
-  height: 40px;      
-  background: linear-gradient(135deg, #ff00cc, #3333ff, #00ffcc, #ff9900);
-  background-size: 400% 400%;
-  color: white;
-  border: none;
-  border-radius: 50%; 
-  cursor: pointer;
-  font-size: 20px;   
-  display: none;     
-  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-  transition: transform 0.3s, filter 0.3s;
-  animation: gradientShiftBtn 6s ease infinite;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.arrow {
-  width: 22px;
-  height: auto;
-}
-
-#scrollToTopBtn:hover {
-  background-color: #017191;
-  transform: scale(1.1);
-}
-
-@keyframes gradientShiftBtn {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
 /*======================  Responsive Adjustments  =======================*/
 
-@media only screen and (max-width: 870px) {
-
-  .head {
-    display: flex;
-    position: relative;
-    margin-left: 20px;
-  }
-
-  .head h1 {
-    margin-left: 0px;
-    font-size: 20px;
-  }
-
-  .head h2 {
-    font-size: 15px;
-    margin-left: 10px;
-  }
-
-  #menu {
-    position: fixed;
-    top: 0;
-    right: -100%;
-    background-color: rgba(255, 255, 255, 0.95);
-    width: 60%;
-    height: 100%;
-    text-align: center;
-    padding-top: 80px;
-    flex-direction: column;
-    transition: right 0.5s ease-in-out, opacity 0.4s ease-in-out;
-  }
-
-  #menu.active {
-    right: 0;
-  }
-
-  #menu li {
-    display: block;
-    margin: 20px 0;
-  }
-
-  .menubtn {
-    display: block;
-  }
-
-  .closebtn {
-    position: fixed;
-    top: 10px;
-    right: 30px;
-    z-index: 11;
-    display: none;
-  }
-
-  .intro {
-    height: auto;
-    padding: 100px 20px;
-  }
-
-  .name {
-    font-size: 50px;
-  }
-
-  #intro-details {
-    margin: 30px 20px;
-    padding: 10px;
-  }
-
-  #about-me {
-    width: 90%;
-    margin: 40px auto;
-  }
-
-  #do-approach {
-    flex-direction: column;
-  }
-
-  .exp {
-    width: 90%;
-    margin: 40px auto;
-    gap: 20px;
-  }
-
-  #experience, 
-  #projects-completed, 
-  #technologies, 
-  #commitment {
-  flex: 1 1 150px; 
-  max-width: 180px;
-}
-
-  #skills-container {
-    width: 90%;
-    gap: 20px;
-  }
-
-  .skills {
-    flex: 1 1 230px;
-    padding: 1.5em;
-  }
-
+@media (max-width: 900px) {
   #projects {
     display: flex;
     position: relative;
     width: 100%;
     height: auto;
-    margin: 10px 0px;
   }
 
   #projects-container {
@@ -961,6 +984,176 @@ a:hover {
   #image1 {
     width: 100%;
     height: auto;
+  }
+}
+
+/*=============================  DARK MODE  =============================*/
+
+body.dark-mode #projects {
+  background-color: #0d171f;
+  z-index: -1;
+}
+
+body.dark-mode .projects {
+  background-color: #0d171f;
+  color: #e0e0e0;
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.1);
+  border-color: #333;
+}
+
+body.dark-mode #projects-heading {
+  color: white;
+}
+
+/*=======================  LET'S WORK TOGETHER  ======================*/
+
+.form-section {
+  position: relative;
+  background: radial-gradient(lightgrey, #fff);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 10px 0;
+}
+
+.form-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  text-align: center;
+  width: 50%;
+  height: auto;
+  padding-top: 40px;
+  padding-right: 40px;
+  padding-bottom: 20px;
+  padding-left: 40px;
+}
+
+.form-header p {
+  padding: 20px;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 60%;
+  padding: 20px 40px 40px 40px;
+  gap: 30px;
+  justify-content: center;
+}
+
+.contact-info {
+  flex: 1 1 140px;
+  padding: 10px;
+  margin-right: 10px;
+  box-sizing: border-box;
+}
+
+.contact-info h3 {
+  padding-bottom: 20px;
+}
+
+.contact-info p {
+  padding-bottom: 20px;
+}
+
+.contact-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.link {
+  font-size: smaller;
+}
+
+.link a {
+  font-size: 15px;
+  color: black;
+  text-decoration: none;
+}
+
+.contact-item svg {
+  width: 30px;
+  height: auto;
+  background-color: rgb(6, 139, 120);
+  border-radius: 5px;
+  color: #fff;
+  margin: 0;
+  padding: 5px;
+  flex-shrink: 0;
+}
+
+#item1 {
+  margin-bottom: 20px;
+}
+
+.form {
+  flex: 1 1 150px;
+  padding: 20px;
+  text-align: left;
+  background-color: #fff;
+  box-shadow: 0px 0px 5px 1px grey;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+.form-group label {
+  display: block;
+  font-size: 15px;
+  margin-top: 15px;
+  margin-bottom: -15px;
+}
+
+.form input,
+.form textarea {
+  width: 100%;
+  padding: 5px 10px;
+  margin-top: 0px;
+  border: 2px solid darkgrey;
+  border-radius: 5px;
+  font-size: 18px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.form textarea {
+  margin-bottom: 20px;
+}
+
+.form input:hover,
+.form textarea:hover {
+  border: 2px solid cyan;
+}
+
+.form input:focus,
+.form textarea:focus {
+  border: 2px solid #00bcd4;
+  box-shadow: 0 0 5px rgba(0, 188, 212, 0.5);
+  outline: none;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.submit {
+  position: relative;
+  width: 100%;
+  font-size: 20px;
+  background: rgb(6, 139, 120);
+  color: #fff;
+  border-radius: 5px;
+  border-width: 0;
+  padding: 10px 10px 10px 10px;
+}
+
+/*======================  Responsive Adjustments  =======================*/
+
+@media (max-width: 900px) {
+  .form-section {
+    padding: 10px 0;
   }
 
   .form-header {
@@ -994,80 +1187,166 @@ a:hover {
     width: 50%;
     height: auto;
   }
-
 }
 
-/*==========================  DARK MODE  ==========================*/
+/*=============================  DARK MODE  =============================*/
+/*=========================  Form Section  ==========================*/
 
-body.dark-mode {
-  background-color: #141414;
-  color: #e0e0e0;
+body.dark-mode .form-section {
+  background: #002139;
 }
 
-/*=========================  HEADER AND FOOTER  =========================*/
-
-body.dark-mode .header {
-  background-color: #001c1cfe;
-}
-body.dark-mode #menu li a {
-  color: #e0e0e0;
-}
-body.dark-mode #menu li a:hover {
-  color: #80dfff;
+body.dark-mode .form-header {
+  background-color: #002139;
 }
 
-/*=========================  SECTIONS  =========================*/
-
-body.dark-mode .intro {
-  background: radial-gradient(rgb(0, 107, 131), #0c191f);
+body.dark-mode .form-header h2 {
+  color: white;
 }
 
-body.dark-mode .about,
+body.dark-mode .form-header p {
+  color: darkgrey;
+}
+
+body.dark-mode .container {
+  background-color: #002139;
+}
+
+body.dark-mode .contact-info h3 {
+  color: white;
+}
+
+body.dark-mode .contact-info p {
+  color: darkgrey;
+}
+
+body.dark-mode .link {
+  color: darkgrey;
+}
+
+body.dark-mode .link a {
+  color: white;
+}
+
+body.dark-mode .form {
+  background-color: #002139;
+}
+
+body.dark-mode .form-group label {
+  color: darkgrey;
+}
+
+body.dark-mode .form-group input {
+  background: #013458;
+  color: white;
+}
+
+body.dark-mode .form-group input::placeholder {
+  color: rgb(207, 206, 206);
+}
+
+body.dark-mode .form-group textarea {
+  background: #013458;
+  color: white;
+}
+
+body.dark-mode .form-group textarea::placeholder {
+  color: rgb(207, 206, 206);
+}
+
+/*============================  Footer  ============================*/
+
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(239, 238, 238);
+}
+
+#contact-container {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#contact-paragraph {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  color: darkslategrey;
+}
+
+#contact-details {
+  line-height: 30px;
+}
+
+#contact-details a {
+  color: #00192b;
+}
+
+#contact-details a:hover {
+  color: brown;
+}
+
+/*==========================  Scroll To Button  =========================*/
+
+#scrollToTopBtn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 100;
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #ff00cc, #3333ff, #00ffcc, #ff9900);
+  background-size: 400% 400%;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 20px;
+  display: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s, filter 0.3s;
+  animation: gradientShiftBtn 6s ease infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.arrow {
+  width: 22px;
+  height: auto;
+}
+
+#scrollToTopBtn:hover {
+  background-color: #017191;
+  transform: scale(1.1);
+}
+
+@keyframes gradientShiftBtn {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/*=============================  DARK MODE  =============================*/
+/*=============================  Footer  ================================*/
+
 body.dark-mode footer {
-  background-color: #00161f;
+  background: #001321;
 }
 
-/*=======================  Cards and Containers  ========================*/
-
-body.dark-mode #about-me,
-body.dark-mode .skills,
-body.dark-mode #experience,
-body.dark-mode #projects-completed,
-body.dark-mode #technologies,
-body.dark-mode #commitment,
-body.dark-mode .projects {
-  background-color: #1f1f1f;
-  color: #e0e0e0;
-  box-shadow: 0 0 6px rgba(255, 255, 255, 0.1);
-  border-color: #333;
+body.dark-mode #contact {
+  color: white;
 }
 
-/*=======================  LINES AND HIGHLIGHTS  ========================*/
-
-body.dark-mode .line {
-  background-color: #00bcd4;
-}
-
-/*=========================  SCROLL TO BUTTON  =========================*/
-
-body.dark-mode #scrollToTopBtn {
-  background: linear-gradient(135deg, #00bcd4, #4caf50);
-}
-
-/*=========================  LINKS  =========================*/
-
-body.dark-mode a {
-  color: #00bcd4;
-}
-body.dark-mode a:hover {
-  color: #4caf50;
-}
-
-/*======================  TYPING TEXT AND CURSOR  =======================*/
-
-body.dark-mode #typed-text {
-  color: #80dfff;
-}
-body.dark-mode .cursor {
-  background-color: #00bcd4;
+body.dark-mode #contact-details {
+  color: darkgrey;
 }
