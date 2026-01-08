@@ -424,31 +424,43 @@
                     </div>
                 </div>
 
-                <form class="form">
+                <form class="form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+
+                    <!-- REQUIRED for Netlify -->
+                    <input type="hidden" name="form-name" value="contact">
+
+                    <!-- Honeypot field (spam protection, hidden) -->
+                    <input type="hidden" name="bot-field">
+
                     <div class="form-group">
-                        <label for="name" class="lang" data-en="Full Name *" data-hi="पूरा नाम *">Full Name
-                            *</label><br>
+                        <label for="name" class="lang" data-en="Full Name *" data-hi="पूरा नाम *">
+                            Full Name *
+                        </label><br>
                         <input class="name1" type="text" id="name" name="name" placeholder="Your full name" required
                             data-en-placeholder="Your full name" data-hi-placeholder="आपका पूरा नाम">
                     </div>
 
                     <div class="form-group">
-                        <label for="email" class="lang" data-en="Email Address *" data-hi="ईमेल पता *">Email Address
-                            *</label><br>
+                        <label for="email" class="lang" data-en="Email Address *" data-hi="ईमेल पता *">
+                            Email Address *
+                        </label><br>
                         <input class="email" type="email" id="email" name="email" placeholder="your.email@example.com"
                             required data-en-placeholder="your.email@example.com"
                             data-hi-placeholder="आपका.ईमेल@उदाहरण.कॉम">
                     </div>
 
                     <div class="form-group">
-                        <label for="phone" class="lang" data-en="Phone Number" data-hi="फ़ोन नंबर">Phone
-                            Number</label><br>
+                        <label for="phone" class="lang" data-en="Phone Number" data-hi="फ़ोन नंबर">
+                            Phone Number
+                        </label><br>
                         <input class="phone" type="tel" id="phone" name="phone" placeholder="987654321"
                             data-en-placeholder="987654321" data-hi-placeholder="987654321">
                     </div>
 
                     <div class="form-group">
-                        <label for="message" class="lang" data-en="Message *" data-hi="संदेश *">Message *</label><br>
+                        <label for="message" class="lang" data-en="Message *" data-hi="संदेश *">
+                            Message *
+                        </label><br>
                         <textarea class="message" id="message" name="message" rows="4"
                             placeholder="Share your thoughts, project ideas, or let's discuss potential opportunities..."
                             required
@@ -456,9 +468,12 @@
                             data-hi-placeholder="अपने विचार, प्रोजेक्ट आइडिया साझा करें, या संभावित अवसरों पर चर्चा करें..."></textarea>
                     </div>
 
-                    <button class="submit lang" type="submit" data-en="Send Message" data-hi="संदेश भेजें">Send
-                        Message</button>
+                    <button class="submit lang" type="submit" data-en="Send Message" data-hi="संदेश भेजें">
+                        Send Message
+                    </button>
+
                 </form>
+
             </div>
         </section>
     </main>
